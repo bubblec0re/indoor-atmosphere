@@ -34,6 +34,6 @@ void connectMhz19b()
   setrangeA_crc = 255 - setrangeA_crc;
   setrangeA_crc += 1;
   if (!(setrangeA_response[0] == 0xFF && setrangeA_response[1] == 0x99 && setrangeA_response[8] == setrangeA_crc) ) {
-    myOLED.print("MHZ-19B Error", OLED_L, 1);
+    lcd.print("MHZ-19B Error");
   }
 }

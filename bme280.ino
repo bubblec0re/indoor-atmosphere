@@ -2,8 +2,9 @@ void connectBME() {
   unsigned status;
   status = bme.begin(0x76);
   if (!status) {
-    myOLED.print("BME Error", OLED_L, 1);
-    myOLED.print(bme.sensorID(), OLED_L, 3);
+    lcd.print("BME Error");
+    lcd.setCursor(0,1);
+    lcd.print(bme.sensorID());
     while (1) {
       delay(10000);
     };

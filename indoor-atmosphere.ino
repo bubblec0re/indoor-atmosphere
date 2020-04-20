@@ -1,15 +1,11 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
-#include <iarduino_OLED_txt.h>
 #include <SoftwareSerial.h>
 #include <LiquidCrystal_I2C.h>
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
-//Screens
-iarduino_OLED_txt myOLED(0x3C);
-extern uint8_t MediumFont[];
-
+//Screen
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 //BME
@@ -22,7 +18,6 @@ unsigned int ppm = 0;
 void setup() {
 
   //Screens
-  connectOLED();
   connectLCD();
 
   //BME
