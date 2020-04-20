@@ -22,7 +22,7 @@ void setup() {
 
   //Screens
   connectOLED();
-  connectLCD();
+//  connectLCD();
 
   //BME
   connectBME();
@@ -35,6 +35,7 @@ void setup() {
 void loop() {
   bme.takeForcedMeasurement(); // BME goes to sleep after measuring when in Forced mode
   measureCO2();
-  printValues(bme.readTemperature(), bme.readHumidity(), (bme.readPressure() / 100.0F * 0.75006), ppm);
+  //printValues(bme.readTemperature(), bme.readHumidity(), (bme.readPressure() / 100.0F * 0.75006), ppm);
+  printValues();
   delay(15000);
 }
