@@ -12,3 +12,11 @@ void connectOLED() {
   myOLED.begin();
   myOLED.setFont(MediumFont);
 }
+<<<<<<< Updated upstream
+=======
+
+//void connectLCD() {
+//  lcd.init();
+//  lcd.backlight();
+//}
+>>>>>>> Stashed changes
