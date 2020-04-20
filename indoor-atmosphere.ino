@@ -14,6 +14,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 //BME
 Adafruit_BME280 bme; // I2C
+
 //MHZ-19 B
 SoftwareSerial swSerial(A0, A1); // TX, RX
 unsigned int ppm = 0;
