@@ -2,15 +2,12 @@
 #include <Adafruit_BME280.h>
 #include <iarduino_OLED_txt.h>
 #include <SoftwareSerial.h>
-#include <LiquidCrystal_I2C.h>
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
 //Screens
 iarduino_OLED_txt myOLED(0x3C);
 extern uint8_t MediumFont[];
-
-LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 //BME
 Adafruit_BME280 bme; // I2C
@@ -22,7 +19,6 @@ void setup() {
 
   //Screens
   connectOLED();
-//  connectLCD();
 
   //BME
   connectBME();
@@ -35,7 +31,6 @@ void setup() {
 void loop() {
   bme.takeForcedMeasurement(); // BME goes to sleep after measuring when in Forced mode
   measureCO2();
-  //printValues(bme.readTemperature(), bme.readHumidity(), (bme.readPressure() / 100.0F * 0.75006), ppm);
-  printValues();
+  printValues(bme.readTemperature(), bme.readHumidity(), (bme.readPressure() / 100.0F * 0.75006), ppm);
   delay(15000);
 }
