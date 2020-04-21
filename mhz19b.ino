@@ -1,4 +1,4 @@
-void measureCO2() {
+unsigned int measureCO2() {
 
   byte measure_cmd[9] = {0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79};
   unsigned char measure_response[9];
@@ -17,6 +17,8 @@ void measureCO2() {
   unsigned int responseHigh = (unsigned int) measure_response[2];
   unsigned int responseLow = (unsigned int) measure_response[3];
   ppm = (256 * responseHigh) + responseLow;
+
+  return ppm;
 
 }
 
