@@ -1,9 +1,9 @@
-void printValues(float t, float h, float p, float c) {
+void printValues(unsigned int t, unsigned int h, unsigned int p, unsigned int c) {
 
-  String tempStr = "T:" + (String)round(t) + "C";
-  String humStr = "H:" + (String)round(h) + "%";
-  String presStr = "P:" + (String)round(p) + "mm";
-  String co2Str = "C:" + (String)round(c) + "ppm";
+  String tempStr = "T:" + (String)t + "C";
+  String humStr = "H:" + (String)h + "%";
+  String presStr = "P:" + (String)p + "mm";
+  String co2Str = "C:" + (String)c + "ppm";
 
   lcd.print(tempStr);
 

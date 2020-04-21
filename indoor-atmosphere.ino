@@ -13,13 +13,13 @@ Adafruit_BME280 bme; // I2C
 
 //MHZ-19 B
 SoftwareSerial swSerial(A0, A1); // TX, RX
-unsigned int ppm = 0;
+
+unsigned int ppm = 0, temp = 0, humid = 0, pres = 0;
 
 void setup() {
 
   //Screens
   connectLCD();
-
 
   //BME
   connectBME();
@@ -30,8 +30,15 @@ void setup() {
 
 
 void loop() {
+  
   bme.takeForcedMeasurement(); // BME goes to sleep after measuring when in Forced mode
   measureCO2();
-  printValues(bme.readTemperature(), bme.readHumidity(), (bme.readPressure() / 100.0F * 0.75006), ppm);
+
+  temp = round(bme.readTemperature());
+  humid = round(bme.readHumidity());
+  pres = round(bme.readPressure()/100.0F*0.75006);
+    
+  printValues(temp, humid, pres, ppm);
   delay(15000);
+  
 }
