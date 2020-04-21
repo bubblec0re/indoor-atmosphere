@@ -7,13 +7,13 @@ void printValues(unsigned int t, unsigned int h, unsigned int p, unsigned int c)
 
   lcd.print(tempStr);
 
-  lcd.setCursor(8, 0);
+  lcd.setCursor(7, 0);
   lcd.print(humStr);
 
   lcd.setCursor(0, 1);
   lcd.print(presStr);
 
-  lcd.setCursor(8, 1);
+  lcd.setCursor(7, 1);
   lcd.print(co2Str);
 }
 
