@@ -5,6 +5,8 @@ void printValues(unsigned int t, unsigned int h, unsigned int p, unsigned int c)
   String presStr = "P:" + (String)p + "mm";
   String co2Str = "C:" + (String)c + "ppm";
 
+  lcd.clear();
+
   lcd.print(tempStr);
 
   lcd.setCursor(7, 0);
