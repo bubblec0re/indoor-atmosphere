@@ -1,7 +1,4 @@
 # indoor-atmosphere
-16x2 I2C LCD
+Info from BME280 and MH-Z19B on a16x2 I2C LCD
 
-BME280
-
-MH-Z19B
 Using libraries from AlexGyver: https://alexgyver.ru & https://github.com/AlexGyver/GyverLibs
