@@ -1,7 +1,8 @@
-
+#include <GyverButton.h>
 #include <GyverBME280.h>
 #include <SoftwareSerial.h>
 #include <microLiquidCrystal_I2C.h>
+
 
 //Screen
 LiquidCrystal_I2C lcd(0x27, 16, 2);
@@ -11,6 +12,9 @@ GyverBME280 bme;
 
 //MHZ-19 B
 SoftwareSerial swSerial(A0, A1); // TX, RX
+
+//button
+GButton but(3);
 
 unsigned int ppm = 0, temp = 0, humid = 0, pres = 0;
 unsigned int lastValues[4] = {0, 0, 0, 0};
