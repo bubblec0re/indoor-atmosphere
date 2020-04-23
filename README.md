@@ -4,3 +4,4 @@
 BME280
 
 MH-Z19B
+Using libraries from AlexGyver: https://alexgyver.ru & https://github.com/AlexGyver/GyverLibs
