@@ -45,7 +45,8 @@ void loop() {
     lastValues[3] = ppm;
 
     printValues(temp, humid, pres, ppm);
-    delay(15000);
   }
+
+  delay(15000);
 
 }
