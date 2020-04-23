@@ -1,15 +1,12 @@
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
+#include <GyverBME280.h>
 #include <SoftwareSerial.h>
-#include <LiquidCrystal_I2C.h>
-
-#define SEALEVELPRESSURE_HPA (1013.25)
+#include "src/liquidCrystal_I2C/liquidCrystal_I2C.h"
 
 //Screen
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 //BME
-Adafruit_BME280 bme; // I2C
+GyverBME280 bme;
 
 //MHZ-19 B
 SoftwareSerial swSerial(A0, A1); // TX, RX
@@ -32,11 +29,11 @@ void setup() {
 
 void loop() {
 
-  bme.takeForcedMeasurement(); // BME goes to sleep after measuring when in Forced mode
+  bme.oneMeasurement(); // BME goes to sleep after measuring when in Forced mode
 
   temp = round(bme.readTemperature());
   humid = round(bme.readHumidity());
-  pres = round(bme.readPressure() / 100.0F * 0.75006);
+  pres = round(pressureToMmHg(bme.readPressure()));
   ppm = measureCO2();
 
   if (temp != lastValues[0] || humid != lastValues[1] || pres != lastValues[2] || ppm != lastValues[3]) {
