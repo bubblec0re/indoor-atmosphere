@@ -1,6 +1,7 @@
+
 #include <GyverBME280.h>
 #include <SoftwareSerial.h>
-#include "src/liquidCrystal_I2C/liquidCrystal_I2C.h"
+#include <microLiquidCrystal_I2C.h>
 
 //Screen
 LiquidCrystal_I2C lcd(0x27, 16, 2);
