@@ -39,13 +39,14 @@ void loop() {
 
   but.tick();
   if (but.isPress()) {
-    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    //digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     toggleBacklight();
   }
 
 
   if ((millis() - lastCheck) > 15000 || lastCheck == 0) {
 
+    blinkBuiltin();
     lastCheck = millis();
 
     bme.oneMeasurement(); // BME goes to sleep after measuring when in Forced mode
@@ -65,5 +66,10 @@ void loop() {
       printValues(temp, humid, pres, ppm);
     }
   }
+}
 
+void blinkBuiltin() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(100);
+  digitalWrite(LED_BUILTIN, LOW);
 }
