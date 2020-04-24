@@ -44,11 +44,12 @@ void loop() {
   }
 
 
-  if ((millis() - lastCheck) > 15000 || lastCheck == 0) {
+  if ((millis()/1000) - lastCheck > 15 || lastCheck == 0) {
 
+    lastCheck = millis()/1000;
+    
     blinkBuiltin();
-    lastCheck = millis();
-
+    
     bme.oneMeasurement(); // BME goes to sleep after measuring when in Forced mode
     temp = round(bme.readTemperature());
     humid = round(bme.readHumidity());
