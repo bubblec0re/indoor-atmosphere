@@ -29,7 +29,7 @@ void setup() {
   connectBME();
 
   //MHZ-19B
-  connectMhz19b();
+  connectMhz19b(0);
 
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -44,7 +44,7 @@ void loop() {
   }
 
 
-  if ((millis() - lastCheck) > 15000) {
+  if ((millis() - lastCheck) > 15000 || lastCheck == 0) {
 
     lastCheck = millis();
 

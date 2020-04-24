@@ -22,7 +22,7 @@ unsigned int measureCO2() {
 
 }
 
-void connectMhz19b()
+void connectMhz19b(int tryNum)
 {
   swSerial.begin(9600);
   //Источник - https://revspace.nl/MHZ19
@@ -36,9 +36,21 @@ void connectMhz19b()
   setrangeA_crc = 255 - setrangeA_crc;
   setrangeA_crc += 1;
   if (!(setrangeA_response[0] == 0xFF && setrangeA_response[1] == 0x99 && setrangeA_response[8] == setrangeA_crc) ) {
-    lcd.print("MHZ-19B Error");
-    while (true) {
+    lcd.print("MHZ-19B Error.");
+    if (tryNum < 4) {
+      tryNum++;
+      lcd.setCursor(0, 1);
+      lcd.print("Retry " + (String)tryNum);
       delay(10000);
+      connectMhz19b(tryNum);
+    }
+    else {
+      lcd.print("MHZ-19B Error.");
+      lcd.setCursor(0, 1);
+      lcd.print("Cant connect");
+      while (true) {
+        delay(1000);
+      }
     }
   }
 }
