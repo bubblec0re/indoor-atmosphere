@@ -23,3 +23,8 @@ void connectLCD() {
   lcd.init();
   lcd.backlight();
 }
+
+void toggleBacklight() {
+  backlight_on = !backlight_on;
+  lcd.setBacklight(backlight_on);
+}
