@@ -12,7 +12,7 @@ bool backlight_on = false;
 GyverBME280 bme;
 
 //MHZ-19 B
-SoftwareSerial swSerial(A0, A1); // TX, RX
+SoftwareSerial swSerial(A0, A1); // RX, TX
 
 //button
 GButton but(3);
@@ -39,7 +39,6 @@ void loop() {
 
   but.tick();
   if (but.isPress()) {
-    //digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     toggleBacklight();
   }
 
