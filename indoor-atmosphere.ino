@@ -29,7 +29,7 @@ void setup() {
   connectBME();
 
   //MHZ-19B
-  connectMhz19b(0);
+  //connectMhz19b(0);
 
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -43,18 +43,18 @@ void loop() {
   }
 
 
-  if ((millis()/1000) - lastCheck > 15 || lastCheck == 0) {
+  if ((millis() / 1000) - lastCheck > 15 || lastCheck == 0) {
 
-    lastCheck = millis()/1000;
-    
+    lastCheck = millis() / 1000;
+
     blinkBuiltin();
-    
+
     bme.oneMeasurement(); // BME goes to sleep after measuring when in Forced mode
     temp = round(bme.readTemperature());
     humid = round(bme.readHumidity());
     pres = round(pressureToMmHg(bme.readPressure()));
 
-    ppm = measureCO2();
+    //ppm = measureCO2();
 
     if (temp != lastValues[0] || humid != lastValues[1] || pres != lastValues[2] || ppm != lastValues[3]) {
 
